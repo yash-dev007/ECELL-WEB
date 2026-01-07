@@ -1,0 +1,300 @@
+/* Leadership & Guidance Section Styles */
+
+.leadership-section {
+    background: #0a0a0a;
+    padding: 4rem 0 0;
+    position: relative;
+    overflow: hidden;
+    /* Ensure clean edges */
+}
+
+/* Section Heading */
+.leadership-heading-wrapper {
+    text-align: center;
+    margin-bottom: 4rem;
+    position: relative;
+}
+
+.leadership-title {
+    font-size: 3rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, white 0%, var(--primary-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.leadership-underline {
+    width: 4rem;
+    height: 4px;
+    background: var(--primary-color);
+    margin: 0 auto 1rem;
+    border-radius: 2px;
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.leadership-heading-wrapper:hover .leadership-underline {
+    width: 8rem;
+}
+
+.leadership-subtitle {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
+}
+
+/* Panels Container */
+.leadership-panels {
+    display: flex;
+    height: 480px;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 1rem;
+    padding: 0 2rem;
+}
+
+/* Individual Panel */
+.leadership-panel {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    transition: flex 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    border-radius: 1rem;
+}
+
+/* Background Image */
+.panel-bg-image {
+    position: absolute;
+    inset: 1.5rem;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 0.5rem;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0.7;
+}
+
+/* Expand to Full Bleed on Hover */
+.leadership-panel:hover .panel-bg-image {
+    inset: 0;
+    border-radius: 1rem;
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* Dark Overlay */
+.panel-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.8) 100%);
+    transition: background 0.6s ease;
+    border-radius: 1rem;
+}
+
+.leadership-panel:hover .panel-overlay {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 100%);
+}
+
+/* Panel Content */
+.panel-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 2rem;
+    color: white;
+}
+
+/* Panel Label - VERTICAL in Default State */
+.panel-label {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: white;
+    margin: 0;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Panel Label - HORIZONTAL on Hover */
+.leadership-panel:hover .panel-label {
+    writing-mode: horizontal-tb;
+    text-orientation: initial;
+    transform: rotate(0deg);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.1em;
+}
+
+/* Panel Details (Hidden by Default) */
+.panel-details {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
+    text-align: center;
+    max-width: 350px;
+}
+
+/* Hover Expansion */
+.leadership-panel:hover {
+    flex: 2;
+}
+
+.leadership-panel:hover .panel-details {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Shrink Other Panels on Hover */
+.leadership-panels:hover .leadership-panel:not(:hover) {
+    flex: 0.75;
+    opacity: 0.6;
+}
+
+.leadership-panels:hover .leadership-panel:not(:hover) .panel-details {
+    opacity: 0;
+}
+
+/* Leader Details Typography */
+.leader-full-name {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.leader-position {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+}
+
+.leader-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+    font-style: italic;
+}
+
+.leader-tagline {
+    display: none;
+}
+
+/* Mobile Leadership Layout Fix (Max Width 768px) */
+@media (max-width: 768px) {
+    .leadership-panels {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+        height: auto !important;
+        padding: 0 1rem !important;
+        justify-content: flex-start !important;
+    }
+
+    .leadership-panel {
+        flex: 1 1 100% !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: 220px !important;
+        margin: 0 !important;
+        border-radius: 12px !important;
+        background: #000 !important;
+        position: relative !important;
+        overflow: hidden !important;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    .leadership-panel:hover {
+        flex: none !important;
+    }
+
+    .panel-bg-image {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        border-radius: 6px !important;
+        opacity: 1 !important;
+        inset: auto !important;
+        background-position: top center !important;
+        z-index: 0 !important;
+    }
+
+    .panel-overlay {
+        display: none !important;
+    }
+
+    .panel-content {
+        position: absolute !important;
+        inset: 0 !important;
+        padding: 1.5rem !important;
+        justify-content: flex-end !important;
+        align-items: flex-start !important;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 100%) !important;
+        z-index: 2 !important;
+    }
+
+    .panel-label {
+        display: inline-block !important;
+        font-size: 0.7rem !important;
+        font-weight: 800 !important;
+        color: white !important;
+        background: var(--primary-color) !important;
+        padding: 4px 10px !important;
+        margin: 0 0 8px 0 !important;
+        text-align: left !important;
+        letter-spacing: 0.05em !important;
+        text-transform: uppercase !important;
+        line-height: 1 !important;
+        border-radius: 4px !important;
+        box-shadow: 0 2px 6px rgba(255, 23, 68, 0.4) !important;
+        writing-mode: horizontal-tb !important;
+        transform: none !important;
+    }
+
+    .leader-full-name {
+        font-size: 1.25rem !important;
+        line-height: 1.3 !important;
+        margin: 0 0 4px 0 !important;
+        text-align: left !important;
+        display: block !important;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
+    }
+
+    .leader-position {
+        display: block !important;
+        font-size: 0.85rem !important;
+        color: rgba(255, 255, 255, 0.8) !important;
+        text-align: left !important;
+        margin-bottom: 0 !important;
+    }
+
+    .leader-description,
+    .quote-mark {
+        display: none !important;
+    }
+
+    .panel-details {
+        opacity: 1 !important;
+        transform: none !important;
+        display: block !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        position: static !important;
+        text-align: left !important;
+    }
+}

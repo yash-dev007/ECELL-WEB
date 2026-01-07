@@ -1,0 +1,141 @@
+/* Vision Section Styles - Redesigned (Wide & Short + Colors) */
+
+.vision-section {
+    position: relative;
+    padding: 4rem 0;
+}
+
+.vision-section .section-title {
+    text-align: center !important;
+    margin-bottom: 2rem;
+}
+
+.vision-feature-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem;
+    padding: 1rem 0;
+    max-width: 1500px;
+    margin: 0 auto;
+    justify-content: center;
+    justify-items: center;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    /* Ensure it fills grid column */
+    max-width: 700px;
+    border-radius: 1.25rem;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 160px;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    background: linear-gradient(145deg, rgba(255, 23, 68, 0.1), rgba(255, 255, 255, 0.03));
+    border-color: rgba(255, 23, 68, 0.3);
+    box-shadow: 0 10px 40px rgba(255, 23, 68, 0.2);
+}
+
+/* Icon Design - Colored Squares */
+/* Icon Design - Minimal (Restored) */
+.feature-icon-wrapper {
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    /* Very subtle border */
+    border-radius: 12px;
+    margin-bottom: 1.25rem;
+    color: var(--text-gray-200);
+    /* Off-white icon */
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover .feature-icon-wrapper {
+    background: rgba(255, 23, 68, 0.1);
+    /* Red tint on hover */
+    border-color: rgba(255, 23, 68, 0.4);
+    color: var(--primary-color);
+    /* Icon turns red */
+    transform: scale(1.05);
+    /* Slight pop */
+}
+
+
+.feature-content h3 {
+    font-size: 1.25rem;
+    /* Match image size */
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+}
+
+.feature-content p {
+    color: #9ca3af;
+    line-height: 1.5;
+    margin-bottom: 0;
+    font-size: 0.9rem;
+    /* Match image size */
+    font-weight: 400;
+}
+
+.vision-read-more {
+    display: none;
+    color: var(--primary-color);
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-top: 1rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .vision-feature-grid {
+        gap: 1rem;
+    }
+
+    .feature-card {
+        padding: 1.5rem;
+        min-height: auto;
+    }
+
+    .feature-content p {
+        font-size: 0.85rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .feature-content p.expanded {
+        -webkit-line-clamp: unset;
+        line-clamp: unset;
+        display: block;
+    }
+
+    .vision-read-more {
+        display: inline-block;
+    }
+}

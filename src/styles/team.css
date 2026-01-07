@@ -1,0 +1,295 @@
+/* Team Section Styles */
+
+.core-team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* grid-template-rows: auto auto auto; */
+    /* Let it flow naturally */
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 2rem;
+}
+
+/* Explicit Grid placement from CSS - keeping it for accuracy if indices match */
+/* Row 1: 2 cards centered */
+.core-team-grid .leader-card:nth-child(1) {
+    grid-column: 2 / 3;
+}
+
+.core-team-grid .leader-card:nth-child(2) {
+    grid-column: 3 / 4;
+}
+
+/* Row 2: 4 cards */
+.core-team-grid .leader-card:nth-child(3) {
+    grid-column: 1 / 2;
+}
+
+.core-team-grid .leader-card:nth-child(4) {
+    grid-column: 2 / 3;
+}
+
+.core-team-grid .leader-card:nth-child(5) {
+    grid-column: 3 / 4;
+}
+
+.core-team-grid .leader-card:nth-child(6) {
+    grid-column: 4 / 5;
+}
+
+/* Row 3: 4 cards */
+.core-team-grid .leader-card:nth-child(7) {
+    grid-column: 1 / 2;
+}
+
+.core-team-grid .leader-card:nth-child(8) {
+    grid-column: 2 / 3;
+}
+
+.core-team-grid .leader-card:nth-child(9) {
+    grid-column: 3 / 4;
+}
+
+.core-team-grid .leader-card:nth-child(10) {
+    grid-column: 4 / 5;
+}
+
+.leader-card {
+    position: relative;
+    width: 100%;
+    height: 18rem;
+    min-height: 18rem;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+}
+
+.leader-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 23, 68, 0.5);
+    background: linear-gradient(145deg, rgba(255, 23, 68, 0.1), rgba(255, 255, 255, 0.03));
+    box-shadow: 0 10px 40px rgba(255, 23, 68, 0.2);
+    z-index: 10;
+}
+
+.leader-bg-img {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: scale(1.1);
+    filter: brightness(0.4);
+    pointer-events: none;
+}
+
+.leader-bg-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+}
+
+.leader-card:hover .leader-bg-img {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.leader-content-wrapper {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.leader-avatar {
+    width: 6.5rem;
+    height: 6.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid rgba(255, 23, 68, 0.3);
+    margin-bottom: 1rem;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    background: #1a1a1a;
+    flex-shrink: 0;
+}
+
+.leader-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.leader-card:hover .leader-avatar {
+    opacity: 0;
+    transform: scale(0.8) translateY(-20px);
+    margin-bottom: -6.5rem;
+}
+
+.leader-info {
+    text-align: center;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 100%;
+    overflow: hidden;
+    padding: 0 0.5rem;
+}
+
+.leader-card:hover .leader-info {
+    transform: translateY(1.5rem);
+}
+
+.leader-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.25rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.leader-role {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.leader-contacts {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
+    height: 0;
+    overflow: hidden;
+    justify-content: center;
+}
+
+.leader-card:hover .leader-contacts {
+    opacity: 1;
+    transform: translateY(3rem);
+    height: auto;
+    overflow: visible;
+}
+
+.contact-icon {
+    width: 2.25rem;
+    height: 2.25rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.contact-icon:hover {
+    background: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+/* Switcher */
+/* Segmented Control Switcher */
+.segmented-control {
+    position: relative;
+    display: inline-flex;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 9999px;
+    padding: 4px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.segment-btn {
+    position: relative;
+    z-index: 2;
+    background: transparent;
+    border: none;
+    color: var(--text-gray-400);
+    padding: 0.6rem 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 9999px;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.segment-btn:hover {
+    color: var(--text-white);
+}
+
+.segment-btn.active {
+    color: #000;
+    font-weight: 600;
+}
+
+.segmented-highlight {
+    position: absolute;
+    top: 4px;
+    bottom: 4px;
+    left: 4px;
+    /* Init with padding offset */
+    width: 0;
+    background: var(--primary-color);
+    border-radius: 9999px;
+    z-index: 1;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 10px rgba(255, 23, 68, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .core-team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .core-team-grid .leader-card {
+        grid-column: auto !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .core-team-grid {
+        grid-template-columns: repeat(1, 1fr) !important;
+        /* Maybe 1 col on mobile or 2 small? CSS said 2 w/ !important */
+        gap: 1rem !important;
+    }
+
+    .segmented-control {
+        width: 100%;
+        display: flex;
+    }
+
+    .segment-btn {
+        flex: 1;
+        padding: 0.6rem 0.5rem;
+        font-size: 0.85rem;
+    }
+}

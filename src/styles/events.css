@@ -1,0 +1,148 @@
+/* Events Section Styles */
+
+.events-loop-wrapper {
+    width: 100%;
+    overflow: hidden;
+    padding: 2rem 0 8rem 0;
+    position: relative;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.events-track {
+    display: flex;
+    gap: 2rem;
+    width: max-content;
+    animation: infinite-scroll 50s linear infinite;
+    padding-left: 2rem;
+    will-change: transform;
+    user-select: none;
+}
+
+@keyframes infinite-scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.events-track:hover {
+    animation-play-state: paused;
+}
+
+.event-card {
+    position: relative;
+    height: 22rem;
+    border-radius: 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    cursor: grab;
+    flex-shrink: 0;
+    width: 16rem;
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    margin-top: 0;
+}
+
+/* Diagonal Layout Logic in CSS */
+/* Repeating pattern of 6 */
+.events-track .event-card:nth-child(6n+1) {
+    margin-top: 0rem;
+}
+
+.events-track .event-card:nth-child(6n+2) {
+    margin-top: 2rem;
+}
+
+.events-track .event-card:nth-child(6n+3) {
+    margin-top: 4rem;
+}
+
+.events-track .event-card:nth-child(6n+4) {
+    margin-top: 6rem;
+}
+
+.events-track .event-card:nth-child(6n+5) {
+    margin-top: 8rem;
+}
+
+.events-track .event-card:nth-child(6n+6) {
+    margin-top: 10rem;
+}
+
+/* Interactive States */
+.events-track:hover .event-card {
+    filter: grayscale(100%) brightness(0.6);
+    opacity: 0.5;
+}
+
+.events-track:hover .event-card:hover {
+    filter: grayscale(0%) brightness(1);
+    opacity: 1;
+    transform: translateY(-12px) scale(1.05);
+    z-index: 10;
+    box-shadow: 0 10px 40px rgba(255, 23, 68, 0.2);
+    border-color: rgba(255, 23, 68, 0.5);
+    background: linear-gradient(145deg, rgba(255, 23, 68, 0.1), rgba(255, 255, 255, 0.03));
+}
+
+.event-img {
+    width: 100%;
+    height: 12rem;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.event-content {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    position: relative;
+}
+
+.event-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+.event-date {
+    font-size: 0.8rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.event-view-btn {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    background: var(--primary-color);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 9999px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.event-card:hover .event-view-btn {
+    opacity: 1;
+    transform: translateY(0);
+}

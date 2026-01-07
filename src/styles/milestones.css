@@ -1,0 +1,386 @@
+/* Milestones Section Styles */
+
+.section-common {
+    padding: 6rem 0;
+    position: relative;
+}
+
+.carousel-overflow {
+    overflow: hidden;
+    position: relative;
+    padding: 3rem 0 5rem 0;
+    /* Increased bottom padding for dots */
+    margin: 0 -1rem;
+    cursor: grab;
+}
+
+.carousel-overflow:active {
+    cursor: grabbing;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 2rem;
+    width: max-content;
+    padding: 1rem 2rem;
+    will-change: transform;
+    touch-action: pan-y;
+    animation: carousel 40s linear infinite;
+}
+
+.carousel-track:hover {
+    animation-play-state: paused;
+}
+
+/* --- Milestone Card Wrapper (Handles Dimming) --- */
+.milestone-card {
+    flex: 0 0 350px;
+    /* User requested width */
+    width: 350px;
+    height: 170px;
+    /* User requested height */
+    position: relative;
+    transition: all 0.4s ease;
+    z-index: 1;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Gap handled by spacing in flex column if needed, but box is inside */
+}
+
+/* Dim others on hover */
+.carousel-track:hover .milestone-card {
+    opacity: 0.3;
+    filter: grayscale(100%);
+}
+
+/* Highlight and Scale Hovered Card */
+.carousel-track .milestone-card:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+    transform: scale(1.05);
+    /* Slight zoom */
+    z-index: 10;
+}
+
+/* --- Milestone Box (The Visual Card) --- */
+.milestone-box {
+    width: 100%;
+    height: 100%;
+
+    /* GLASSMORPHISM (User Request) */
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
+    border-radius: 1rem;
+    padding: 1.25rem;
+    position: relative;
+    transition: all 0.3s ease;
+    overflow: visible;
+    /* For Badge */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.milestone-card:hover .milestone-box {
+    border-color: rgba(255, 23, 68, 0.5);
+    /* Red Accent on Hub */
+    box-shadow: 0 10px 40px rgba(255, 23, 68, 0.2);
+    background: linear-gradient(145deg, rgba(255, 23, 68, 0.1), rgba(255, 255, 255, 0.03));
+}
+
+/* --- Internal Elements --- */
+
+/* Typography */
+.milestone-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+}
+
+.milestone-year {
+    color: #ff1744;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+}
+
+.milestone-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+.milestone-desc {
+    font-size: 0.9rem;
+    color: #888;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+/* Circular Badge */
+.milestone-circle-badge {
+    position: absolute;
+    top: -15px;
+    right: 15px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #222;
+    overflow: hidden;
+    background: #000;
+    transition: transform 0.3s ease;
+    z-index: 5;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.milestone-circle-badge img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.milestone-card:hover .milestone-circle-badge {
+    transform: scale(1.1);
+}
+
+.badge-count {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.milestone-card:hover .badge-count {
+    opacity: 1;
+}
+
+
+/* --- More Info Button (from Temp) --- */
+.milestone-btn {
+    margin-top: auto;
+    padding: 0.4rem 1rem;
+    background: transparent;
+    border: 1px solid #ff1744;
+    border-radius: 9999px;
+    /* Pill shape */
+    color: #ff1744;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+    opacity: 0;
+    transform: translateY(10px);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.milestone-card:hover .milestone-btn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.milestone-btn:hover {
+    background: #ff1744;
+    color: white;
+}
+
+/* --- Timeline Dot (from Temp/My Additions) --- */
+.milestone-dot {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: #111;
+    border: 2px solid #333;
+    margin-top: 2rem;
+    /* Spacing below card */
+    position: relative;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.milestone-dot::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 23, 68, 0.4) 0%, transparent 70%);
+    opacity: 0.3;
+    transition: opacity 0.3s ease, width 0.3s ease, height 0.3s ease;
+}
+
+.milestone-card:hover .milestone-dot {
+    transform: scale(1.2);
+    border-color: #ff1744;
+    background-color: #ff1744;
+    box-shadow: 0 0 20px #ff1744;
+}
+
+.milestone-card:hover .milestone-dot::after {
+    opacity: 0.8;
+    width: 50px;
+    height: 50px;
+}
+
+/* --- Auto-Visible Button on Mobile --- */
+@media (max-width: 768px) {
+    .milestone-card {
+        flex: 0 0 250px;
+        width: 250px;
+        /* Smaller on mobile */
+        height: auto;
+        min-height: 200px;
+    }
+
+    .milestone-btn {
+        opacity: 1;
+        /* Always visible on mobile */
+        transform: translateY(0);
+    }
+
+    .carousel-track:hover .milestone-card {
+        opacity: 1;
+        /* Disable dimming on touch */
+        filter: none;
+    }
+}
+
+
+/* Modal Styles (Kept as is) */
+.gallery-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-modal.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-img-container {
+    width: 90%;
+    max-width: 900px;
+    max-height: 80vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-img-container img {
+    max-width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.modal-caption {
+    margin-top: 1rem;
+    text-align: center;
+    color: white;
+}
+
+.modal-caption h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+}
+
+.modal-caption p {
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+.modal-close,
+.modal-prev,
+.modal-next {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.modal-close {
+    top: 2rem;
+    right: 2rem;
+    width: 3rem;
+    height: 3rem;
+    font-size: 2rem;
+}
+
+.modal-prev,
+.modal-next {
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3.5rem;
+    height: 3.5rem;
+    font-size: 1.5rem;
+}
+
+.modal-prev {
+    left: 2rem;
+}
+
+.modal-next {
+    right: 2rem;
+}
+
+.modal-close:hover,
+.modal-prev:hover,
+.modal-next:hover {
+    background: #ff1744;
+}
+
+@keyframes carousel {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}

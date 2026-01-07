@@ -1,0 +1,164 @@
+/* Startup Registration & Contact Form Styles */
+
+.contact-section {
+    background-color: #0F0F0F;
+    position: relative;
+    overflow: hidden;
+    padding: 4rem 0;
+}
+
+.startup-registration-header {
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+.startup-registration-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    display: inline-block;
+}
+
+.startup-registration-underline {
+    width: 4rem;
+    height: 4px;
+    background: var(--primary-color);
+    margin-bottom: 0.75rem;
+    border-radius: 2px;
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.startup-registration-header:hover .startup-registration-underline {
+    width: 8rem;
+}
+
+.startup-registration-subtitle {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
+    max-width: 500px;
+}
+
+/* Form Styles */
+.contact-form {
+    position: relative;
+    z-index: 10;
+    margin-top: 2rem;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.contact-form label {
+    position: absolute;
+    top: -0.75rem;
+    left: 1.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #6b7280;
+    /* text-gray-500 */
+    background-color: #0F0F0F;
+    padding: 0 0.5rem;
+    z-index: 10;
+}
+
+.input-field {
+    width: 100%;
+    background: white;
+    color: black;
+    font-weight: 500;
+    border-radius: 9999px;
+    padding: 1rem 2rem;
+    border: none;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.input-field:focus {
+    box-shadow: 0 0 0 4px rgba(255, 23, 68, 0.5);
+}
+
+.textarea-field {
+    border-radius: 30px;
+    resize: none;
+    min-height: 8rem;
+    padding-top: 1.5rem;
+}
+
+.btn-submit {
+    width: 100%;
+    background: var(--primary-color);
+    color: black;
+    font-weight: 700;
+    font-size: 1.125rem;
+    padding: 1rem;
+    border-radius: 9999px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 0 30px rgba(239, 68, 68, 0.4);
+}
+
+.btn-submit:hover {
+    transform: scale(1.02);
+}
+
+/* Floating Pills / Background Elements */
+.contact-float-item {
+    position: absolute;
+    animation: float 6s ease-in-out infinite;
+    z-index: 1;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.contact-pill {
+    padding: 1rem 1.5rem;
+    background: rgba(30, 30, 30, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: background-color 0.3s;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+
+.contact-pill:hover {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 20px rgba(255, 23, 68, 0.2);
+    transform: translateY(-4px);
+}
+
+.icon-circle {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contact-float-item {
+        display: none;
+        /* Hide floating elements on mobile to save space/performance */
+    }
+}

@@ -1,0 +1,189 @@
+/* Hero Section Specific Styles */
+
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #121212;
+}
+
+/* Single Red Light - Subtle Bottom Right Glow */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    bottom: -30vh;
+    left: 20%;
+    right: 20%;
+    height: 60vh;
+    background: radial-gradient(ellipse at center, rgba(255, 23, 68, 0.15) 0%, transparent 70%);
+    filter: blur(100px);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero-section::after {
+    content: '';
+    position: absolute;
+    bottom: -20vh;
+    right: -10%;
+    width: 50vw;
+    height: 50vh;
+    background: radial-gradient(circle, rgba(255, 23, 68, 0.08) 0%, transparent 70%);
+    filter: blur(80px);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero-title {
+    font-size: 1rem;
+    /* Reduced size per request */
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    /* Reduced from 1.20rem */
+    color: var(--text-gray-400, rgba(255, 255, 255, 0.7));
+    margin-bottom: 3rem;
+    max-width: 44rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    line-height: 1.6;
+    position: relative;
+    z-index: 10;
+}
+
+/* Swoosh Underline for 'Innovation' */
+.swoosh-underline {
+    position: relative;
+    display: inline-block;
+    color: var(--primary-color);
+    font-style: italic;
+}
+
+.swoosh-underline::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 4px;
+    background: var(--primary-color);
+    border-radius: 2px;
+    transform: rotate(-1deg);
+}
+
+
+/* Glass Panel */
+.glass-panel {
+    background: rgba(20, 20, 20, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 99px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Floating Badges */
+.floating-badge {
+    position: absolute;
+    z-index: 20;
+    pointer-events: auto;
+    transition: transform 0.3s ease;
+}
+
+.floating-badge:hover {
+    transform: scale(1.05);
+}
+
+.badge-content {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 99px;
+}
+
+/* Specific Badge Positions & Styles */
+.badge-pos-1 {
+    top: 40%;
+    left: 10%;
+}
+
+.badge-pos-2 {
+    bottom: 25%;
+    right: 12%;
+}
+
+.badge-pos-2 .glass-panel {
+    border-radius: 1.5rem;
+    padding: 1.25rem 1.5rem;
+    border-left: 4px solid var(--primary-color);
+}
+
+.badge-pos-3 {
+    bottom: 28%;
+    left: 12%;
+}
+
+.badge-pos-4 {
+    top: 45%;
+    right: 10%;
+}
+
+/* Mobile Responsive */
+@media (min-width: 768px) {
+    .hero-title {
+        font-size: 5.5rem;
+        /* Reduced from 7rem */
+    }
+
+    .animate-float-slow {
+        animation: float-bounce 6s ease-in-out infinite;
+    }
+
+    .animate-float-medium {
+        animation: float-bounce 5s ease-in-out infinite reverse;
+    }
+
+    .animate-float-fast {
+        animation: float-bounce 4s ease-in-out infinite 1s;
+    }
+}
+
+@media (max-width: 767px) {
+    .hero-section {
+        padding-top: 6rem;
+        padding-bottom: 4rem;
+        align-items: center;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .floating-badge {
+        display: none;
+    }
+}
+
+@keyframes float-bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}

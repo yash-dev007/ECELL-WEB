@@ -1,0 +1,106 @@
+/* TEC Section Styles */
+
+.tec-bg-text {
+    font-size: 10rem;
+    font-weight: 900;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.03;
+    z-index: 0;
+    pointer-events: none;
+    white-space: nowrap;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: 0.1em;
+}
+
+@media (min-width: 768px) {
+    .tec-bg-text {
+        font-size: 15rem;
+    }
+}
+
+.tec-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.gradient-text {
+    background: linear-gradient(to right, var(--primary-color), #fecaca);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.tec-btn {
+    position: relative;
+    display: inline-block;
+    padding: 0.7rem 2rem;
+    margin-top: 0.8rem;
+    background: var(--primary-color);
+    color: black;
+    font-weight: 700;
+    border-radius: 9999px;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: box-shadow 0.3s ease;
+}
+
+.tec-btn span {
+    position: relative;
+    z-index: 10;
+    transition: color 0.3s;
+}
+
+.tec-btn:hover span {
+    color: white;
+}
+
+.tec-btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: black;
+    border-radius: 9999px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-out;
+}
+
+.tec-btn:hover::after {
+    transform: scaleX(1);
+}
+
+.tec-btn:hover {
+    box-shadow: 0 0 20px rgba(255, 23, 68, 0.5);
+}
+
+/* Fallback/Custom Utilities */
+.flex-col-mobile {
+    flex-direction: column;
+}
+
+.md-flex {
+    display: flex;
+}
+
+.md-w-1-2 {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .flex-col-mobile {
+        flex-direction: row;
+    }
+
+    .md-w-1-2 {
+        width: 50%;
+    }
+}
