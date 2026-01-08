@@ -80,12 +80,10 @@ export default function Leadership() {
               <div className="faculty-advisor-image-container">
                 <img src="/assets/Pathak sir .jpeg" alt="Prof. Umesh Pathak" className="faculty-advisor-profile" />
               </div>
-              <h3 className="faculty-advisor-name">Dr. Umesh Pathak</h3>
-              <p className="faculty-advisor-designation">Faculty Advisor, MET Institute of Technology</p>
-              <div className="faculty-advisor-quote-wrapper">
-                <span className="quote-mark opening">"</span>
+              <div className="faculty-advisor-content">
+                <h3 className="faculty-advisor-name">Dr. Umesh Pathak</h3>
+                <p className="faculty-advisor-designation">Faculty Advisor, MET Institute of Technology</p>
                 <p className="faculty-advisor-quote">Supporting and nurturing student entrepreneurs with academic wisdom, practical guidance, and a commitment to transforming innovative ideas into impactful ventures that shape the future.</p>
-                <span className="quote-mark closing">"</span>
               </div>
             </div>
 
@@ -94,12 +92,10 @@ export default function Leadership() {
               <div className="faculty-advisor-image-container">
                 <img src="/assets/nayansir.jpeg" alt="Prof. Nayan" className="faculty-advisor-profile" />
               </div>
-              <h3 className="faculty-advisor-name">Nayan Sir</h3>
-              <p className="faculty-advisor-designation">Faculty Advisor, MET Institute of Technology</p>
-              <div className="faculty-advisor-quote-wrapper">
-                <span className="quote-mark opening">"</span>
+              <div className="faculty-advisor-content">
+                <h3 className="faculty-advisor-name">Nayan Sir</h3>
+                <p className="faculty-advisor-designation">Faculty Advisor, MET Institute of Technology</p>
                 <p className="faculty-advisor-quote">Guiding students to explore new horizons, fostering a culture of innovation, and building a strong foundation for future leaders.</p>
-                <span className="quote-mark closing">"</span>
               </div>
             </div>
           </div>
